@@ -10,9 +10,7 @@ def main():
     snake = Snake(MAP_HEIGHT)
     food = Food(MAP_WIDTH, MAP_HEIGHT, snake.body)
 
-    food_position = food.place_food()
-
-    game.play_game(snake, food, food_position)
+    game.play_game(snake, food, food.place_food())
 
 if __name__ == "__main__":
     main()
