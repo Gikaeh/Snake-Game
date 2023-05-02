@@ -3,7 +3,7 @@ from game import Game
 from snake import Snake
 from food import Food
 
-class TestGameFunctions(unittest.TestCase):
+class TestUnitFunctions(unittest.TestCase):
     def setUp(self):
         self.game = Game(10, 10)
         #self.game3 = Game(10000, 10000)
