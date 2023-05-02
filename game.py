@@ -52,8 +52,8 @@ class Game:
 
             self.show_field(snake.body, food_position)
 
-            txt, _ = timedInput('Grabbing input:', timeout=.4)
-            match txt:
+            self.txt, _ = timedInput('Grabbing input:', timeout=.4)
+            match self.txt:
                 case 'w':
                     snake.direction = snake.directions['up']
                 case 'a':
