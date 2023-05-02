@@ -5,7 +5,7 @@ class Food:
         self.width = MAP_WIDTH
         self.height = MAP_HEIGHT
         self.snake_body = snake_body
-        self.food = [0,0]
+        self.food = (0,0)
 
     def get_food(self):
         return self.food
