@@ -42,6 +42,8 @@ class Game:
             if box[0] == self.width - 1:
                 print('')
 
+        return True
+
     def play_game(self, snake, food, food_position):
         while True:
             if system == 'Windows':
@@ -71,6 +73,8 @@ class Game:
             if end:
                 print("You have died. Your score was", snake.get_body_count()-3)
                 break
+            
+        return True
 
 
     def check_death(self, snake):
