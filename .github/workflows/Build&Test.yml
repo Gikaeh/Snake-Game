@@ -23,7 +23,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with unittest
         run: |
-          coverage run -m test.py
+          python3 -m coverage run test.py
       - name: Coverage report
         run: |
-          coverage report
+          python3 -m coverage report
