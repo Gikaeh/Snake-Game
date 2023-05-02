@@ -6,7 +6,6 @@ from food import Food
 class TestUnitFunctions(unittest.TestCase):
     def setUp(self):
         self.game = Game(10, 10)
-        #self.game3 = Game(10000, 10000)
 
         self.snake = Snake(10)
         self.testDict = [(2,0), (1,0), (0,0)]
@@ -18,7 +17,6 @@ class TestUnitFunctions(unittest.TestCase):
 
         self.game.set_width(0)
         self.assertEqual(self.game.get_width(), 0)
-        #self.assertEqual(self.game3.width, 1000000)
 
     def test_game_height(self):
         self.assertEqual(self.game.get_height(), 10)
@@ -85,6 +83,12 @@ class TestIntegrationFunctions(unittest.TestCase):
         
         self.food.set_food((5,10))
         self.assertNotEqual(self.food.snake_hit_food(self.food.get_food(), self.game), (5,10))
+
+    def test_show_field(self):
+        self.assertTrue(self.game.show_field(self.snake.get_snake_body(), self.food.get_food()))
+
+    def test_play_game(self):
+        self.assertTrue(self.game.play_game(self.snake, self.food, self.food.get_food()))
 
 if __name__ == '__main__':
     unittest.main()
