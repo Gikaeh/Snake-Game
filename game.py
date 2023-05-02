@@ -61,6 +61,8 @@ class Game:
                     snake.direction = snake.directions['down']
                 case 'd':
                     snake.direction = snake.directions['right']
+                case _:
+                    snake.direction = snake.direction
 
             snake.update_snake(self)
             food_position = food.snake_hit_food(food_position, self)
