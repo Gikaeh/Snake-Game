@@ -9,6 +9,7 @@ class Game:
         self.height = MAP_HEIGHT
         self.eaten = False
         self.boxes = [(col, row) for row in range(self.height) for col in range(self.width)]
+        self.txt = " "
 
     def get_width(self):
         return self.width
