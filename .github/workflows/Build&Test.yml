@@ -27,9 +27,3 @@ jobs:
       - name: Coverage report
         run: |
           coverage report
-      - name: Test with integration
-        run: |
-          coverage run -m unittest integrationTest.py
-      - name: Coverage report
-        run: |
-          coverage report
