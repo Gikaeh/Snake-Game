@@ -9,7 +9,6 @@ class Game:
         self.height = MAP_HEIGHT
         self.eaten = False
         self.boxes = [(col, row) for row in range(self.height) for col in range(self.width)]
-        self.txt = " "
 
     def get_width(self):
         return self.width
@@ -52,8 +51,8 @@ class Game:
 
             self.show_field(snake.body, food_position)
 
-            self.txt, _ = timedInput('Grabbing input:', timeout=.4)
-            match self.txt:
+            txt, _ = timedInput('Grabbing input:', timeout=.4)
+            match txt:
                 case 'w':
                     snake.direction = snake.directions['up']
                 case 'a':
