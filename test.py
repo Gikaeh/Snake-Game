@@ -8,6 +8,11 @@ class TestGameFunctions(unittest.TestCase):
         self.game = Game(10, 10)
         #self.game3 = Game(10000, 10000)
 
+        self.snake = Snake(10)
+        self.testDict = [(2,0), (1,0), (0,0)]
+
+        self.food = Food(10, 10, [(5,5), (4,5), (3,5)])
+
     def test_game_width(self):
         self.assertEqual(self.game.get_width(), 10)
 
@@ -26,11 +31,6 @@ class TestGameFunctions(unittest.TestCase):
         
         self.game.set_eaten(True)
         self.assertTrue(self.game.get_eaten())
-
-class TestSnakeFunctions(unittest.TestCase):
-    def setUp(self):
-        self.snake = Snake(10)
-        self.testDict = [(2,0), (1,0), (0,0)]
 
     def test_snake_body(self):
         self.snakeBody = self.snake.get_snake_body()
@@ -53,15 +53,28 @@ class TestSnakeFunctions(unittest.TestCase):
         self.snake.set_body_count(0)
         self.assertEqual(self.snake.get_body_count(), 0)
 
-class TestFoodFunctions(unittest.TestCase):
-    def setUp(self):
-        self.food = Food(10, 10, [(5,5), (4,5), (3,5)])
-
     def test_food(self):
         self.assertEqual(self.food.get_food(), [0,0])
 
         self.food.set_food([1,5])
         self.assertEqual(self.food.get_food(), [1,5])
+
+class TestIntegrationFunctions(unittest.TestCase):
+    def setUp(self):
+        self.game = Game(20, 20)
+
+        self.snake = Snake(20)
+        self.snake_inside = Snake(20, [(5,3),(4,2),(3,2),(5,3)])
+        self.snake_wall = Snake(20, [(19,5),(18,5),(17,5)])
+
+        self.food = Food(20, 20, self.snake)
+
+    def test_check_death(self):
+        self.assertFalse(self.game.check_death(self.snake))
+        self.assertTrue(self.game.check_death(self.snake_inside))
+        self.assertTrue(self.game.check_death(self.snake_wall))
+
+    #def test_update_snake(self):
 
 if __name__ == '__main__':
     unittest.main()
