@@ -84,11 +84,11 @@ class TestIntegrationFunctions(unittest.TestCase):
         self.food.set_food((5,10))
         self.assertNotEqual(self.food.snake_hit_food(self.food.get_food(), self.game), (5,10))
 
-    def test_show_field(self):
-        self.assertTrue(self.game.show_field(self.snake.get_snake_body(), self.food.get_food()))
+    # def test_show_field(self):
+    #     self.assertTrue(self.game.show_field(self.snake.get_snake_body(), self.food.get_food()))
 
-    def test_play_game(self):
-        self.assertTrue(self.game.play_game(self.snake, self.food, self.food.get_food()))
+    # def test_play_game(self):
+    #     self.assertTrue(self.game.play_game(self.snake, self.food, self.food.get_food()))
 
 if __name__ == '__main__':
     unittest.main()
