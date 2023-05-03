@@ -53,18 +53,7 @@ class Game:
 
             self.show_field(snake.body, food_position)
 
-            txt, _ = timedInput('Grabbing input:', timeout=.4)
-            match txt:
-                case 'w':
-                    snake.direction = snake.directions['up']
-                case 'a':
-                    snake.direction = snake.directions['left']
-                case 's':
-                    snake.direction = snake.directions['down']
-                case 'd':
-                    snake.direction = snake.directions['right']
-                case _:
-                    snake.direction = snake.direction
+            self.grab_input(snake)
 
             snake.update_snake(self)
             food_position = food.snake_hit_food(food_position, self)
@@ -73,7 +62,7 @@ class Game:
             if end:
                 print("You have died. Your score was", snake.get_body_count()-3)
                 break
-            
+
         return True
 
 
@@ -81,3 +70,19 @@ class Game:
         if snake.body[0][0] in (0, self.width-1) or snake.body[0][1] in (0, self.height-1) or snake.body[0] in snake.body[1:]:
             return True
         return False
+    
+    def grab_input(self, snake):
+        txt, _ = timedInput('Grabbing input:', timeout=.4)
+        match txt:
+            case 'w':
+                snake.direction = snake.directions['up']
+            case 'a':
+                snake.direction = snake.directions['left']
+            case 's':
+                snake.direction = snake.directions['down']
+            case 'd':
+                snake.direction = snake.directions['right']
+            case _:
+                snake.direction = snake.direction
+        
+        return True
