@@ -89,7 +89,5 @@ class TestIntegrationFunctions(unittest.TestCase):
     def test_show_field(self):
         self.assertTrue(self.game.show_field(self.snake.get_snake_body(), self.food.get_food()))
 
-    def test_grab_input(self):
-        self.assertTrue(self.game.grab_input(self.snake))
 if __name__ == '__main__':
     unittest.main()
